@@ -1,4 +1,7 @@
-// TODO: function returning function
+// ? Higher Order Function
+// 1. Callback function  (function as an argument to another function)
+// 2. Closure (function returning function)
+
 // callback function
 // ? function which is passed as an argument to another function
 // ? is called callback  function
@@ -14,3 +17,32 @@
 // });
 
 // ? function returning function
+// closure => function + lexical environment (surrounding environment)
+
+// ? we can say makeAdder is a function factory
+// const makeAdder = (x) => {
+//   const doSum = (y) => {
+//     let sum = x + y;
+
+//     return sum;
+//   };
+
+//   return doSum;
+// };
+
+// const doSum5 = makeAdder(5);
+// const doSum10 = makeAdder(10);
+// const sum = doSum10(10);
+// console.log(sum);
+
+// const doSum25 = makeAdder(25);
+// const sum = doSum25(5);
+
+// const sum = makeAdder(25)(5);
+// console.log(sum);
+
+// ? aesthetic
+
+const makeAdder = (x) => (y) => x + y;
+
+console.log(makeAdder(10)(5));
